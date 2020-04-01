@@ -2,6 +2,7 @@ import {
   createAppContainer,
 } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import {colors} from './constants';
 
 import Home from '../components/Home';
 import AddItem from '../components/AddItem';
@@ -28,6 +29,23 @@ const AppRoot = createStackNavigator({
     }
   },
   Auction,
+}, {
+  defaultNavigationOptions: {
+    headerTitleAllowFontScaling: false,
+    headerTitleAlign: 'center',
+    headerTitleStyle: {
+      fontSize: 16,
+      color: 'black',
+      fontWeight: 'normal',
+      // fontFamily: Platform.OS === 'android' ? 'sans-serif-thin' : undefined,
+    },
+    headerBackTitleVisible: false,
+    headerStyle: {
+      borderBottomWidth: 0,
+      shadowOpacity: 0,
+      elevation: 0,
+    },
+  }
 });
 
 const AppContainer = createAppContainer(AppRoot);
