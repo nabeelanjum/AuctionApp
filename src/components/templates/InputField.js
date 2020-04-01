@@ -11,6 +11,10 @@ export default class InputField extends Component<{}> {
     this._field.focus();
   }
 
+  blur() {
+    this._field.blur();
+  }
+
   render() {
     return(
       <TextInput

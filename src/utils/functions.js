@@ -6,19 +6,24 @@ import AsyncStorage from '@react-native-community/async-storage';
 export default {
 
   async getAuctions() {
-    const auctions = await AsyncStorage.getItem('auctions');
+    let auctions = await AsyncStorage.getItem('auctions');
     console.log(auctions);
     if (auctions === null) {
       return [];
     } else {
+      auctions = JSON.parse(auctions);
       return auctions;
     }
   },
 
 
 
-  async saveAuction() {
-    //
+  async saveAuction(auction) {
+    let auctions = await this.getAuctions();
+    auctions.push(auction);
+    auctions = JSON.stringify(auctions);
+    console.log(auctions);
+    await AsyncStorage.setItem('auctions', auctions);
   }
 
 };

@@ -13,7 +13,7 @@ const AppRoot = createStackNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      title: 'Auctions'
+      title: 'Completed Auctions'
     }
   },
   AddItem: {
