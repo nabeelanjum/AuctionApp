@@ -123,7 +123,7 @@ export default class Auction extends Component<{}> {
             </RNPickerSelect>
             </View>
             <InputField ref={(c) => this._amountField = c} style={{width: '32%', height: deviceHeight/16}} value={bidAmount} onChangeText={(t) => this.setState({bidAmount: t})} keyboardType={'numeric'} placeholder='Amount' />
-            <LoadingButton onPress={this.addBid} style={styles.addBidBtn} title='+' />
+            <LoadingButton onPress={() => this.addBid()} style={styles.addBidBtn} title='+' />
           </View>
         </View>
         <FlatList

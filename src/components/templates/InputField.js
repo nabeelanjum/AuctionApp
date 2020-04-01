@@ -49,6 +49,6 @@ const styles = {
     fontSize: deviceHeight/48,
     fontWeight: '300',
     textAlign: 'center',
-    fontFamily: Platform.OS === 'android' ? 'sans-serif-thin' : undefined,
+    fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : undefined,
   },
 };

@@ -76,7 +76,7 @@ export default class AddItem extends Component<{}> {
           visible={this.state.modalVisible}
           onTouchOutside={() => this.setState({ modalVisible: false })}
           onHardwareBackPress={() => this.setState({ modalVisible: false })}
-          height={deviceHeight/1.5}
+          height={deviceHeight/1.4}
           dialogStyle={styles.modalContainer}>
             <View style={styles.modalBody}>
               <InputField onSubmitEditing={this.addParticipant} autoFocus={true} onChangeText={(t) => this.setState({name: t})} autoCapitalize={'words'} returnKeyType='done' placeholder='Name' />

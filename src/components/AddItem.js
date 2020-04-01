@@ -29,7 +29,7 @@ export default class AddItem extends Component<{}> {
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'white', justifyContent: 'space-around', paddingHorizontal: 25, paddingBottom: deviceHeight/3}}>
+      <View style={{flex: 1, backgroundColor: 'white', justifyContent: 'space-around', paddingHorizontal: 25, paddingBottom: deviceHeight/2.5}}>
         <InputField onChangeText={(t) => this.setState({itemName: t})} autoCapitalize={'words'} onSubmitEditing={() => this._price.focus()} placeholder='Item Name' />
         <InputField ref={(c) => this._price = c} onChangeText={(t) => this.setState({itemPrice: t})} keyboardType={'numeric'} returnKeyType='done' placeholder='Item Price' />
         <LoadingButton onPress={this.addItem} title='Add' />
