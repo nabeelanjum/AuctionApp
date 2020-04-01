@@ -66,7 +66,7 @@ export default class AddItem extends Component<{}> {
           ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: colors.LIGHT_GREY}} />}
           renderItem={({item}) => this.renderName(item)}
         />
-        <View style={{flexDirection: 'row', marginVertical: 20, justifyContent: 'space-around', marginLeft: 10}}>
+        <View style={{flexDirection: 'row', marginVertical: deviceHeight/28, justifyContent: 'space-around', marginLeft: 10}}>
           <LoadingButton style={{width: '70%'}} onPress={() => this.setState({modalVisible: true})} title='Add New' />
           <LoadingButton style={[{width: deviceHeight/12, maxWidth: 55, borderRadius: 100}, !enabled && {backgroundColor: colors.GREY, shadowOpacity: 0}]} onPress={this.moveNext} title='→' />
         </View>

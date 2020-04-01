@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
 import functions from '../utils/functions';
-import {colors} from '../utils/constants';
+import {colors, deviceHeight} from '../utils/constants';
 import CustomText from './templates/CustomText';
 import LoadingButton from './templates/LoadingButton';
 
@@ -25,11 +25,11 @@ export default class Home extends Component<{}> {
   renderAuction(auction) {
     return (
       <View style={styles.auctionView}>
-        <CustomText style={styles.text}>Item: {auction.item.name}</CustomText>
-        <CustomText style={styles.text}>Winner: {auction.wonBid.participant}</CustomText>
-        <CustomText style={styles.text}>Staring Price: ${auction.item.price}</CustomText>
-        <CustomText style={styles.text}>Bid Price: ${auction.wonBid.amount}</CustomText>
-        <CustomText style={styles.text}>Profit: ${auction.wonBid.profit}</CustomText>
+        <CustomText style={[styles.text, {fontSize: deviceHeight/35}]}>{auction.item.name}</CustomText>
+        <CustomText style={styles.text}>Winner:  {auction.wonBid.participant}</CustomText>
+        <CustomText style={styles.text}>Staring Price:  ${auction.item.price}</CustomText>
+        <CustomText style={styles.text}>Bid Price:  ${auction.wonBid.amount}</CustomText>
+        <CustomText style={styles.text}>Profit:  ${auction.wonBid.profit}</CustomText>
       </View>
     );
   }
@@ -56,7 +56,7 @@ export default class Home extends Component<{}> {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => this.renderAuction(item)}
         />
-        <LoadingButton style={{marginBottom: 25, width: '85%'}} title='New Auction' onPress={() => this.navigate('AddItem')} />
+        <LoadingButton style={{marginVertical: deviceHeight/28, width: '85%'}} title='New Auction' onPress={() => this.navigate('AddItem')} />
       </View>
     );
   }
@@ -74,6 +74,7 @@ const styles = {
     marginVertical: 6,
   },
   text: {
+    marginTop: 3,
     alignSelf: 'flex-start',
     textAlign: 'left',
     color: 'white',

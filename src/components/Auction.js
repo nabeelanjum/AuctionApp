@@ -8,7 +8,7 @@ import InputField from './templates/InputField';
 import LoadingButton from './templates/LoadingButton';
 import CustomText from './templates/CustomText';
 import Dialog, { SlideAnimation } from 'react-native-popup-dialog';
-import {deviceHeight, colors} from '../utils/constants';
+import {deviceHeight, deviceWidth, colors} from '../utils/constants';
 import functions from '../utils/functions';
 import RNPickerSelect from 'react-native-picker-select';
 
@@ -83,7 +83,7 @@ export default class Auction extends Component<{}> {
     const profit = bid.amount - this.auction.item.price;
     return (
       <View style={styles.bidView}>
-        <CustomText style={{fontSize: 16, fontWeight: '500', alignSelf: 'flex-start'}}>Bidder: {bid.participant}</CustomText>
+        <CustomText style={{fontWeight: '500', alignSelf: 'flex-start'}}>Bidder: {bid.participant}</CustomText>
         <View>
           <CustomText style={{alignSelf: 'flex-start'}}>Bid Amount: ${bid.amount}</CustomText>
           <CustomText style={{alignSelf: 'flex-start'}}>Profit: ${profit}</CustomText>
@@ -119,10 +119,10 @@ export default class Auction extends Component<{}> {
               items={participants}
               onValueChange={(v) => this.updateParticipant(v)}
               value={selectedParticipant}>
-              <InputField style={{ height: 40 }} placeholder={'Select Participant'} value={selectedParticipant} />
+              <InputField style={{ height: deviceHeight/16 }} placeholder={'Select Participant'} value={selectedParticipant} />
             </RNPickerSelect>
             </View>
-            <InputField ref={(c) => this._amountField = c} style={{width: '33%', height: 40}} value={bidAmount} onChangeText={(t) => this.setState({bidAmount: t})} keyboardType={'numeric'} placeholder='Amount' />
+            <InputField ref={(c) => this._amountField = c} style={{width: '32%', height: deviceHeight/16}} value={bidAmount} onChangeText={(t) => this.setState({bidAmount: t})} keyboardType={'numeric'} placeholder='Amount' />
             <LoadingButton onPress={this.addBid} style={styles.addBidBtn} title='+' />
           </View>
         </View>
@@ -161,7 +161,7 @@ const styles = {
   auctionAndBidContainer: {
     backgroundColor: 'rgb(240, 240, 240)',
     marginHorizontal: 10,
-    padding: 15,
+    padding: deviceWidth/38,
     // borderWidth: 1,
     borderColor: colors.BLUE,
     borderRadius: 10,
@@ -176,8 +176,8 @@ const styles = {
     // backgroundColor: 'red',
   },
   addBidBtn: {
-    width: 40,
-    height: 40,
+    height: deviceHeight/16,
+    width: deviceHeight/16,
     shadowOpacity: 0,
     elevation: 0,
     borderRadius: 100
